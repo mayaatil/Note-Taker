@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 //get fetch for the notes page
 app.get("/api/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/asets/notes.hmtl"));
+  res.sendFile(path.join(__dirname, "/public/assets/notes.hmtl"));
 });
 
 const readFromFile = util.promisify(fs.readFile);
