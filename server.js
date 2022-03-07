@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require("uuid");
 
 //initialize port and express
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 //sets up the express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
