@@ -50,7 +50,7 @@ const readAndAppend = (content, file) => {
 };
 
 //post request
-app.post("/notes", (req, res) => {
+app.post("/api/notes", (req, res) => {
   const { title, text } = req.body;
 
   if (req.body) {
