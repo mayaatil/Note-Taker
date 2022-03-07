@@ -16,12 +16,12 @@ app.use(express.static("public"));
 
 //get fetch for intial homepage
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/assets/index.html"));
+  res.sendFile(path.join(__dirname, "./public/assets/index.html"));
 });
 
 //get fetch for the notes page
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/assets/notes.hmtl"));
+  res.sendFile(path.join(__dirname, "./public/assets/notes.hmtl"));
 });
 
 const readFromFile = util.promisify(fs.readFile);
