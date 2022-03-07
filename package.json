@@ -1,15 +1,25 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a note taker",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayaatil/Note-Taker.git"
+  },
+  "author": "Maya Tillman",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayaatil/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/mayaatil/Note-Taker#readme",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
+    "util": "^0.12.4",
     "uuid": "^8.3.2"
   }
 }

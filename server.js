@@ -20,11 +20,16 @@ app.get("/", (req, res) => {
 });
 
 //get fetch for the notes page
-app.get("/api/notes", (req, res) => {
+app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/assets/notes.hmtl"));
 });
 
 const readFromFile = util.promisify(fs.readFile);
+
+//use get to receive notes as a string
+app.get("/api/notes", (req, res) => {
+  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
+});
 
 //writeFile
 const writeToFile = (destination, content) =>
@@ -44,20 +49,15 @@ const readAndAppend = (content, file) => {
   });
 };
 
-//use get to receive notes as a string
-app.get("/api/notes", (req, res) => {
-  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
-});
-
 //post request
-app.post("/api/notes", (req, res) => {
+app.post("/notes", (req, res) => {
   const { title, text } = req.body;
 
   if (req.body) {
     const newNote = {
       title,
       text,
-      title_id: uuidv4(),
+      id: uuidv4(),
     };
 
     readAndAppend(newNote, "./db/db.json");
@@ -71,3 +71,5 @@ app.post("/api/notes", (req, res) => {
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
 );
+
+module.exports = app;
